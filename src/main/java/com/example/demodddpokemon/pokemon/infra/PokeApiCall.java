@@ -9,7 +9,7 @@ import me.sargunvohra.lib.pokekotlin.model.PokemonSpecies;
 
 public class PokeApiCall implements PokemonRepository {
 
-    final int KO_ID = 0;
+    final int KO_ID = 3;
 
     @Override
     public Pokemon findByNumber(int number) {
@@ -23,6 +23,6 @@ public class PokeApiCall implements PokemonRepository {
                 .get();
         final int captureRate = pokemonSpecies.getCaptureRate();
         final String url = pokeApi.getPokemon(number).getSprites().getFrontDefault();
-        return null;
+        return new Pokemon(number, pokemonName, url, captureRate);
     }
 }
