@@ -1,6 +1,7 @@
 package com.example.demodddpokemon.pokemon.application;
 
 import com.example.demodddpokemon.pokeball.domain.Pokeball;
+import com.example.demodddpokemon.pokeball.domain.PokeballRepository;
 import com.example.demodddpokemon.pokemon.domain.CalculateService;
 import com.example.demodddpokemon.pokemon.domain.Pokemon;
 import com.example.demodddpokemon.pokemon.domain.PokemonRepository;
@@ -10,7 +11,7 @@ import com.example.demodddpokemon.trainer.domain.TrainerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
-/*
+
 @Service
 public class CatchingService {
 
@@ -26,9 +27,9 @@ public class CatchingService {
     }
 
     public void tryCatching(final String trainerId, final int pokemonNumber, final int pokeBallId) {
-        final Trainer trainer;
+        final Trainer trainer = trainerRepository.findById(trainerId);
         final Pokemon pokemon = pokemonRepository.findByNumber(pokemonNumber);
-        final Pokeball pokeball;
+        final Pokeball pokeball = pokeballRepository.findById(pokeBallId).orElse(null);
 
         final CalculateService calculateService = new CalculateService();
         double calculateCaptureRate = calculateService.calculateCaptureRate(trainer, pokemon, pokeball);
@@ -42,4 +43,4 @@ public class CatchingService {
     }
 
 }
-*/
+

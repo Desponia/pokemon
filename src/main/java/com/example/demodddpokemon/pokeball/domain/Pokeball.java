@@ -1,6 +1,11 @@
 package com.example.demodddpokemon.pokeball.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Pokeball {
+    @Id
     private int id;
     private String name;
     private double bonusMultiplier;
