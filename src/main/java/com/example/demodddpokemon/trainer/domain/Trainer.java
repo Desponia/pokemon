@@ -1,10 +1,21 @@
 package com.example.demodddpokemon.trainer.domain;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 // root entity
+@Entity
 public class Trainer {
 
+    @Id
     private String id;
     private int level;
+
+    private Trainer() {
+    }
+
+    @Embedded
     private Party party;
 
     public Trainer(String id) {
@@ -18,7 +29,7 @@ public class Trainer {
             this.level++;
     }
 
-    public void gotPokemon(final PokemonCaught pokemonCaught) {
+    public void getPokemon(final PokemonCaught pokemonCaught) {
         this.party.add(pokemonCaught);
         levelUp();
     }
